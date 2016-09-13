@@ -372,7 +372,7 @@ public class SampleApplicationSession implements UpdateCallbackInterface
             synchronized (mShutdownLock)
             {
                 //Put your Vuforia Key License here :)
-                Vuforia.setInitParameters(mActivity, mVuforiaFlags, "Ae6j4dj/////AAAAAXKN9AFfzUdFqJVmqJ+GvlgaXEVgcsA/Hgf9hsnuu024hc5k2s3O+IYZPyeYcX1egNlX/OcwLJNhSPFbXa0O+GDCxUT0hQNCb3COFBNGwSLdlzXngyufRlS2nfHmKSLco4C1hHoV/kPnIx+H4/xfMf352oTGaHrHnBvoTFqQc6OTq1sV1DB4BfLIj4W03iyj27MBOEDLbucYabSRbIG8Ofy99yem0xXHXZuwie1AEcrnjVYSAhtHQ2i5msYphC2i0R2bzgv7ZENScITPW6uoyiaXv1Ujxx1QDncMJ7lcr3W8mP0NM0gFlNdc9FbWDjQ6ZeJdhvpzakUIoJFBA1RoFWV9AsQEYUfHT3Prcf1F5jOD");
+                Vuforia.setInitParameters(mActivity, mVuforiaFlags, "AQ+8BZP/////AAAAGV5rpmT4HUEivPS1h55YiDxj2WDOuBGSis+zQy4Z2mLHExq5thhmWNmFclAN7MD00DDbhTGnVMifKYH4+gAnzrAeb3B8OWoPNhSVk+vD/Cga7vj6DeEGf6auSRUnv8wCgcnmYRppEy7PeP+Er+qGU3Cbtmkc3N7tdMoosEEDG1CDdQYkZPFXNeoMom1ttGu59V5nOrQFzmZP2aetxpER36jiJFWb76zsYsKu5p9vOej44ASUGh5RIrAtKwrZLv4AWh5H9UacN9ufylXYWEAsMbTd/oTIKqln+p1y9b5Nz9S4pz/HtWrjgZAnLQl0ZLDlhoi0c7gFrdfHgYdCr91p+hH77oGCgZ5FvlNGwewUCXU/");
                 
                 do
                 {

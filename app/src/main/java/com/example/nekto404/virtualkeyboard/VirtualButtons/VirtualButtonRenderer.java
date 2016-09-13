@@ -5,6 +5,7 @@ import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 import android.util.Log;
 
+import com.example.nekto404.virtualkeyboard.SampleApplication.utils.CubeObject;
 import com.vuforia.Area;
 import com.vuforia.ImageTargetResult;
 import com.vuforia.Rectangle;
@@ -44,7 +45,7 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
     
     private Vector<Texture> mTextures;
     
-    private Teapot mTeapot = new Teapot();
+    private CubeObject mCube = new CubeObject();
     
     // OpenGL ES 2.0 specific (3D model):
     private int shaderProgramID = 0;
@@ -63,7 +64,7 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
     private int vbVertexHandle = 0;
     
     // Constants:
-    static private float kTeapotScale = 3.f;
+    static private float kTeapotScale = 30f;
     
     
     public VirtualButtonRenderer(VirtualButtons activity,
@@ -242,6 +243,7 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                 // If the button is pressed, than use this texture:
                 if (buttonResult.isPressed())
                 {
+                    mCube.changeCord(buttonIndex);
                     textureIndex = buttonIndex + 1;
                 }
                 
@@ -350,11 +352,11 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
             GLES20.glUseProgram(shaderProgramID);
             
             GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
-                false, 0, mTeapot.getVertices());
+                false, 0, mCube.getVertices());
             GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
-                false, 0, mTeapot.getNormals());
+                false, 0, mCube.getNormals());
             GLES20.glVertexAttribPointer(textureCoordHandle, 2,
-                GLES20.GL_FLOAT, false, 0, mTeapot.getTexCoords());
+                GLES20.GL_FLOAT, false, 0, mCube.getTexCoords());
             
             GLES20.glEnableVertexAttribArray(vertexHandle);
             GLES20.glEnableVertexAttribArray(normalHandle);
@@ -367,8 +369,8 @@ public class VirtualButtonRenderer implements GLSurfaceView.Renderer
                 modelViewProjectionScaled, 0);
             GLES20.glUniform1i(texSampler2DHandle, 0);
             GLES20.glDrawElements(GLES20.GL_TRIANGLES,
-                mTeapot.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
-                mTeapot.getIndices());
+                mCube.getNumObjectIndex(), GLES20.GL_UNSIGNED_SHORT,
+                mCube.getIndices());
             
             GLES20.glDisableVertexAttribArray(vertexHandle);
             GLES20.glDisableVertexAttribArray(normalHandle);

@@ -5,7 +5,7 @@ import java.nio.Buffer;
 public class CubeObject extends MeshObject {
 
     // Data for drawing the 3D plane as overlay
-    private static final double cubeVertices[]  = {
+    private double cubeVertices[]  = {
             -1.00f, -1.00f, 1.00f, // front
             1.00f, -1.00f, 1.00f,
             1.00f, 1.00f, 1.00f,
@@ -37,7 +37,7 @@ public class CubeObject extends MeshObject {
             -1.00f, -1.00f, -1.00f
     };
 
-    private static final double cubeTexcoords[] = {
+    private double cubeTexcoords[] = {
             0, 0, 1, 0, 1, 1, 0, 1,
 
             1, 0, 0, 0, 0, 1, 1, 1,
@@ -51,7 +51,7 @@ public class CubeObject extends MeshObject {
             1, 0, 0, 0, 0, 1, 1, 1
     };
 
-    private static final double cubeNormals[]   = {
+    private double cubeNormals[]   = {
             0, 0, 1,  0, 0, 1,  0, 0, 1,  0, 0, 1,
 
             0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1,
@@ -65,7 +65,7 @@ public class CubeObject extends MeshObject {
             0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0,
     };
 
-    private static final short  cubeIndices[]   = {
+    private short  cubeIndices[]   = {
             0, 1, 2, 0, 2, 3, // front
             4, 6, 5, 4, 7, 6, // back
             8, 9, 10, 8, 10, 11, // left
@@ -79,6 +79,10 @@ public class CubeObject extends MeshObject {
     private Buffer mNormBuff;
     private Buffer mIndBuff;
 
+    public void changeCord(int i){
+        cubeVertices[0]=i-1;
+        mVertBuff = fillBuffer(cubeVertices);
+    }
     public CubeObject() {
         mVertBuff = fillBuffer(cubeVertices);
         mTexCoordBuff = fillBuffer(cubeTexcoords);
@@ -106,6 +110,8 @@ public class CubeObject extends MeshObject {
         }
         return result;
     }
+
+
 
     @Override
     public int getNumObjectVertex()
